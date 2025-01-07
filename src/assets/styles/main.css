@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 :root {
   --color-fafafa: #f8f8f8;
   /* --color-fafafa: #FAFAFA */
@@ -35,6 +35,7 @@ body,
   font-size: inherit;
   font-weight: normal;
   letter-spacing: normal;
+  scroll-behavior: smooth;
   font-family: "Inter", sans-serif;
   background-color: var(--color-fafafa);
 }
@@ -64,6 +65,11 @@ body,
   margin-top: 16px;
 }
 
+.b-r {
+  border-radius: 16px;
+  background-color: var(--white);
+}
+
 .b-img {
   width: 100%;
   height: auto;
@@ -74,6 +80,13 @@ body,
 /* Filter Styles */
 .f {
   margin-top: 10px;
+}
+
+.f-loading {
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  padding: 10px 0px 6px 0px;
 }
 
 .f-r {
@@ -112,6 +125,7 @@ body,
 }
 
 .p-loading {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 8px;

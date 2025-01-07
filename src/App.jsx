@@ -1,6 +1,14 @@
 import { useState } from "react";
-import { Filter, Header, Footer, ProductsList } from "./components";
-import ProductsLoading from "./components/ProductsLoading";
+import {
+  Filter,
+  Header,
+  Footer,
+  ProductsList,
+  BannerLoading,
+  FilterLoading,
+  ProductsLoading,
+  Banner,
+} from "./components";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,9 +16,14 @@ function App() {
     <>
       <Header />
       <main>
+        <Banner />
+        {/* <BannerLoading /> */}
+
         <Filter />
-        {/* <ProductsList /> */}
-        {isLoading && (<ProductsLoading loading={true} />)}
+        {/* <FilterLoading /> */}
+
+        <ProductsList />
+        {/* <ProductsLoading /> */}
       </main>
       <Footer />
     </>
