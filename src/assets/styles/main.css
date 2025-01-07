@@ -1,139 +1,157 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-
-
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 :root {
-    --color-fafafa: #f8f8f8;
-    /* --color-fafafa: #FAFAFA */
-    --white: #ffffff;
+  --color-fafafa: #f8f8f8;
+  /* --color-fafafa: #FAFAFA */
+  --white: #ffffff;
+  --primary: #ff8e2c;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 button {
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  vertical-align: bottom;
 }
 
 html,
 body,
 #root {
-    width: 100%;
-    height: 100%;
-    line-height: 120%;
-    font-size: inherit;
-    font-weight: normal;
-    letter-spacing: normal;
-    font-family: "Poppins", sans-serif;
-    background-color: var(--color-fafafa);
+  width: 100%;
+  height: 100%;
+  line-height: 120%;
+  font-size: inherit;
+  font-weight: normal;
+  letter-spacing: normal;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-fafafa);
 }
 
 .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 16px;
-    max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 1024px;
 }
-/* Header Style */
 
+/* Header Style */
 .h {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .h-r {
-    padding: 12px 0;
+  padding: 10px 0;
 }
+
+.h-logo {
+  width: 110px;
+}
+
 /* Banner Style */
 .b {
-    margin-top: 16px;
+  margin-top: 16px;
 }
-
-.b-r {}
 
 .b-img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    overflow: hidden;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  overflow: hidden;
 }
+
 /* Filter Styles */
 .f {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .f-r {
-    display: flex;
-    gap: 10px;
-    overflow-x: scroll;
-    padding: 6px 6px 10px 4px;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  padding: 6px 6px 10px 4px;
 }
 
 .f-btn {
-    font-size: 14px;
-    padding: 8px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    text-wrap: nowrap;
-    background-color: var(--white);
-    -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-wrap: nowrap;
+  background-color: var(--white);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
 }
+
+.f-btn.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 /* Product List Styles */
 .pl-r {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
 }
+
+.p-loading {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+
 /* Product Card Styles */
 .p {
-    width: 100%;
-    padding: 10px;
-    border-radius: 12px;
-    height: 200px;
-    background-color: var(--white);
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  height: 200px;
+  background-color: var(--white);
 }
 
 .p-img {
-    width: 100%;
-    height: 70%;
+  width: 100%;
+  height: 70%;
 }
 
-.p-t{
-    width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
+.p-t {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
 }
 
-.p-n{
-    width: 100%;
-    height: 60%;
-    font-size: 14px;
-    display: flex;
-    align-items: start;
-    justify-content: start;
+.p-n {
+  width: 100%;
+  height: 60%;
+  font-size: 14px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
 }
-.p-p{
-    width: 100%;
-    height: 40%;
-    font-size: 13px;
-    display: flex;
-    align-items: end;
-    justify-content: end;
+.p-p {
+  width: 100%;
+  height: 40%;
+  font-size: 13px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
 }

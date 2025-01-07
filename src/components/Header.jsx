@@ -6,7 +6,9 @@ function Header() {
       <header className="h">
         <div className="container">
           <div className="h-r">
-            <div className="h-logo">LOGO</div>
+            <div className="h-logo">
+              <img src="/logo.png" alt="" />
+            </div>
           </div>
         </div>
       </header>
@@ -14,7 +16,7 @@ function Header() {
         <div className="container">
           <div className="b-r">
             <div className="b-img">
-              <img src="public/kindpng_884247.png" alt="" />
+              <img src="/kindpng_884247.png" alt="" />
             </div>
           </div>
         </div>

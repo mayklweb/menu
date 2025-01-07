@@ -5,7 +5,7 @@ function Filter() {
     <div className='f'>
       <div className="container">
         <div className="f-r">
-          <button className="f-btn"> All </button>
+          <button className="f-btn active"> All </button>
           <button className="f-btn"> Gamburg </button>
           <button className="f-btn"> Shashlik </button>
           <button className="f-btn"> Fast Food </button>
