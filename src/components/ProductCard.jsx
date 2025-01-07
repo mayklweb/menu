@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
 
-function ProductCard() {
+function ProductCard({ image, name, price }) {
   return (
-    <div>ProductCard</div>
-  )
+    <div className="p">
+      <div className="p-img">
+        <img src={image} alt="" />
+      </div>
+      <div className="p-t">
+        <p className="p-n">
+          <span>{name}</span>
+        </p>
+        <p className="p-p">
+          <span>{price} so'm</span>
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default ProductCard
+export default ProductCard;
