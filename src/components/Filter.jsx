@@ -2,16 +2,16 @@ import React from 'react'
 
 function Filter() {
   return (
-    <div className='f'>
+    <div className='c'>
       <div className="container">
-        <div className="f-r">
-          <button className="f-btn active"> All </button>
-          <button className="f-btn"> Gamburg </button>
-          <button className="f-btn"> Shashlik </button>
-          <button className="f-btn"> Fast Food </button>
-          <button className="f-btn"> Ichimlik </button>
-          <button className="f-btn"> Desert </button>
-          <button className="f-btn"> Bar </button>
+        <div className="c-r">
+          <button className="c-btn active"> All </button>
+          <button className="c-btn"> Gamburg </button>
+          <button className="c-btn"> Shashlik </button>
+          <button className="c-btn"> Fast Food </button>
+          <button className="c-btn"> Ichimlik </button>
+          <button className="c-btn"> Desert </button>
+          <button className="c-btn"> Bar </button>
           
         </div>
       </div>
