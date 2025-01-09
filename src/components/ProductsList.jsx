@@ -1,21 +1,39 @@
 import React from "react";
 import { data } from "../utils";
 import ProductCard from "./ProductCard";
+import { useQuery } from "react-query";
+import { getProducts } from "../api/apiServices";
 
 function ProductsList() {
-    return (
-        <div className="pl">
-            <div className="container">
-                <div className="pl-r">
-                  {
-                    data.map(({name, price, image, id}) => (
-                      <ProductCard key={id} name={name} price={price} image={image} />
-                    ))
-                  }
-                </div>
-            </div>
+  const {
+    data: products,
+    isError,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: getProducts,
+  });
+
+  console.log(products);
+
+  // if (isLoading) return <Loading />
+
+  if (isError) {
+    toast.error(error?.message);
+    return null;
+  }
+  return (
+    <div className="pl">
+      <div className="container">
+        <div className="pl-r">
+          {products?.map((product, i) => (
+            <ProductCard key={i} product={product} />
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ProductsList;
