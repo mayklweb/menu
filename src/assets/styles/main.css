@@ -4,9 +4,9 @@
   --color-fafafa: #f8f8f8;
   /* --color-fafafa: #FAFAFA */
   --white: #ffffff;
-  --primary: #ff8e2c;
-  --dec: ;
-  --inc: ;
+  --primary: #ff8e2b;
+  --dec: #FF0000;
+  --inc: #008000;
 }
 
 * {
@@ -147,20 +147,21 @@ body,
 
 .p-img {
   width: 100%;
-  /* height: 60%; */
+  height: 60%;
   padding: 4px;
 }
 
 .p-t {
   width: 100%;
-  /* height: 30%; */
+  height: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .p-n {
   width: 100%;
-  height: 60%;
+  /* height: 60%; */
   font-size: 16px;
   display: flex;
   align-items: start;
@@ -168,7 +169,7 @@ body,
 }
 .p-p {
   width: 100%;
-  height: 40%;
+  /* height: 40%; */
   font-size: 14px;
   display: flex;
   align-items: end;
@@ -177,10 +178,9 @@ body,
 
 .p-btn {
   width: 100%;
-  height: 16%;
+  height: 24px;
   color: var(--white);
   font-size: 14px;
-  /* padding: px; */
   border-radius: 8px;
   background: var(--primary);
 }
@@ -198,13 +198,22 @@ body,
 }
 
 .p-btn_dec{
-  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+  background-color: var(--dec);
 }
 
 .p-btn_inc{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+  background-color: var(--inc);
+
 }
 .footer {
   width: 100%;
@@ -242,60 +251,3 @@ body,
   color: var(--white);
   background-color: var(--primary);
 }
-
-/* import React from 'react';
-import useCartStore from '../../store';
-import { ProductsType } from '../../types';
-import toast, { Toast } from 'react-hot-toast';
-import { Minus, Plus, X } from 'lucide-react';
-
-
-export const ProductCard: React.FC<{ product: ProductsType }> = ({ product }) => {
-  const { addToCart, cart, inc, dec } = useCartStore()
-
-  const foundedItem = cart.find((item) => item.id === product.id)
-
-  const decrease = (id: number) => {
-    if (foundedItem) {
-      dec(id)
-    }
-    else {
-      toast.error('error')
-    }
-  }
-
-
-  return (
-    <div className="p-2 md:p-4 w-[100%] h-full flex flex-col rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition-all">
-      <div className="">
-        <img
-          alt="Les Ailes chicken wings"
-          className="object-contain"
-          height={300}
-          src={product.img}
-          style={{
-            aspectRatio: "300/300",
-            objectFit: "contain",
-          }}
-          width={300}
-        />
-      </div>
-      <div className="mt-4 flex flex-col justify-between flex-auto">
-        <h3 className="text-sm md:text-lg text-pretty font-medium">{product.name}</h3>
-        <p className="h-full text-base md:text-xl font-bold text-[#FC014A] flex-auto">
-          {product.price} <span className="text-lg">сум</span>
-        </p>
-        {
-
-          !foundedItem ? <button onClick={() => addCart(product)} className='w-full mt-2 p-1 md:p-[6px] rounded text-base md:text-lg text-white bg-[#FC014A] hover:bg-[#fc0148da] transition-all'>Add to cart</button>
-            :
-            <div className='mt-2 p-1 md:p-2 flex items-center justify-between bg-gray-100 rounded transition-all'>
-              <button onClick={() => decrease(product.id)} className='bg-[#D23232] rounded-sm'><Minus color="#fff" /></button>
-              <p>{foundedItem.qty}</p>
-              <button onClick={() => inc(product.id)} className='bg-[#29CC29] rounded-sm'><Plus color="#fff" /></button>
-            </div>
-        }
-      </div>
-    </div>
-  )
-} */

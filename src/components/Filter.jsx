@@ -1,22 +1,37 @@
-import React from 'react'
+import React from "react";
+import { getCategories } from "../api/apiServices";
+import { useQuery } from "react-query";
 
 function Filter() {
+  const {
+    data: categories,
+    isError,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
+
+
+  // if (isLoading) return <FilterLoadingLoading />;
+
+  if (isError) {
+    toast.error(error?.message);
+    return null;
+  }
   return (
-    <div className='c'>
+    <div className="c">
       <div className="container">
         <div className="c-r">
           <button className="c-btn active"> All </button>
-          <button className="c-btn"> Gamburg </button>
-          <button className="c-btn"> Shashlik </button>
-          <button className="c-btn"> Fast Food </button>
-          <button className="c-btn"> Ichimlik </button>
-          <button className="c-btn"> Desert </button>
-          <button className="c-btn"> Bar </button>
-          
+          {categories?.map((category, i) => (
+            <button key={i} className="c-btn"> {category.name} </button>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Filter
+export default Filter;

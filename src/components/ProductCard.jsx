@@ -26,7 +26,6 @@ function ProductCard({ product }) {
         <p className="p-p">
           <span>{product.price} so'm</span>
         </p>
-      </div>
       {!foundedItem ? (
         <button onClick={() => addToCart(product)} className="p-btn">
           Add to cart
@@ -34,15 +33,16 @@ function ProductCard({ product }) {
       ) : (
         <div className="p-count">
           <button onClick={() => decrease(product.id)} className="p-btn_dec">
-            <Minus size={14} color="#000" />
+            <Minus size={16} color="#fff" />
           </button>
           <p className="p-count_num">{foundedItem.qty}</p>
           <button onClick={() => inc(product.id)} className="p-btn_inc">
-            <Plus size={14} color="#000" />
+            <Plus size={16} color="#fff" />
           </button>
         </div>
       )}
-      {/* <div className="p-btn"></div> */}
+
+      </div>
     </div>
   );
 }
