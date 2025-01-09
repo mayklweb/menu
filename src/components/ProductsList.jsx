@@ -1,8 +1,8 @@
 import React from "react";
-import { data } from "../utils";
 import ProductCard from "./ProductCard";
 import { useQuery } from "react-query";
 import { getProducts } from "../api/apiServices";
+import ProductsLoading from "./ProductsLoading";
 
 function ProductsList() {
   const {
@@ -17,7 +17,7 @@ function ProductsList() {
 
   console.log(products);
 
-  // if (isLoading) return <Loading />
+  if (isLoading) return <ProductsLoading />
 
   if (isError) {
     toast.error(error?.message);

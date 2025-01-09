@@ -5,6 +5,8 @@
   /* --color-fafafa: #FAFAFA */
   --white: #ffffff;
   --primary: #ff8e2c;
+  --dec: ;
+  --inc: ;
 }
 
 * {
@@ -176,11 +178,34 @@ body,
 .p-btn {
   width: 100%;
   height: 16%;
+  color: var(--white);
+  font-size: 14px;
   /* padding: px; */
   border-radius: 8px;
   background: var(--primary);
 }
 
+.p-count{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-count{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-btn_dec{
+  background-color: var(--white);
+}
+
+.p-btn_inc{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .footer {
   width: 100%;
   padding: 8px 0px;

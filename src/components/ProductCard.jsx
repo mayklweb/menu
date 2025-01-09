@@ -32,19 +32,13 @@ function ProductCard({ product }) {
           Add to cart
         </button>
       ) : (
-        <div className="">
-          <button
-            onClick={() => decrease(product.id)}
-            className="bg-[#D23232] rounded-sm"
-          >
-            <Minus color="#000" />
+        <div className="p-count">
+          <button onClick={() => decrease(product.id)} className="p-btn_dec">
+            <Minus size={14} color="#000" />
           </button>
-          <p>{foundedItem.qty}</p>
-          <button
-            onClick={() => inc(product.id)}
-            className="bg-[#29CC29] rounded-sm"
-          >
-            <Plus color="#000" />
+          <p className="p-count_num">{foundedItem.qty}</p>
+          <button onClick={() => inc(product.id)} className="p-btn_inc">
+            <Plus size={14} color="#000" />
           </button>
         </div>
       )}
