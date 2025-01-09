@@ -5,11 +5,12 @@ function Footer() {
   const { getTotalPrice } = useCartStore();
 
   const totalPrice = getTotalPrice()
+  
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-r">
-          <p className="order-price">{totalPrice} so'm</p>
+          <p className="order-price">{totalPrice.toLocaleString()} so'm</p>
           <button className="order-btn">Заказать</button>
         </div>
       </div>

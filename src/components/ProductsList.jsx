@@ -15,9 +15,9 @@ function ProductsList() {
     queryFn: getProducts,
   });
 
-  console.log(products);
+  localStorage.setItem("products", JSON.stringify(products));
 
-  if (isLoading) return <ProductsLoading />
+  if (isLoading) return <ProductsLoading />;
 
   if (isError) {
     toast.error(error?.message);
