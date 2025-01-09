@@ -1,16 +1,20 @@
-import React from 'react'
+import React from "react";
+import useCartStore from "../store";
 
 function Footer() {
+  const { getTotalPrice } = useCartStore();
+
+  const totalPrice = getTotalPrice()
   return (
-    <footer className='footer'>
+    <footer className="footer">
       <div className="container">
         <div className="footer-r">
-          <p className='order-price'>1 124 000 so'm</p>
+          <p className="order-price">{totalPrice} so'm</p>
           <button className="order-btn">Заказать</button>
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
