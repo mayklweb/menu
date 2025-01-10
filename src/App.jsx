@@ -4,9 +4,7 @@ import {
   Header,
   Footer,
   ProductsList,
-  BannerLoading,
-  FilterLoading,
-  ProductsLoading,
+
   Banner,
 } from "./components";
 
@@ -18,9 +16,6 @@ function App() {
       <main>
         <Banner />
         {/* <BannerLoading /> */}
-
-        <Filter />
-        {/* <FilterLoading /> */}
 
         <ProductsList />
         {/* <ProductsLoading /> */}

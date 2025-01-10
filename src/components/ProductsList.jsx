@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { useQuery } from "react-query";
 import { getProducts } from "../api/apiServices";
 import ProductsLoading from "./ProductsLoading";
+import Filter from "./Filter";
 
 function ProductsList() {
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const {
     data: products,
     isError,
@@ -15,20 +17,39 @@ function ProductsList() {
     queryFn: getProducts,
   });
 
-  localStorage.setItem("products", JSON.stringify(products));
+  useEffect(() => {
+    if (products) {
+      setFilteredProducts(products);
+      localStorage.setItem("products", JSON.stringify(products));
+    }
+  }, [products]);
+
+  const filterProductsByCategory = (categoryId) => {
+    if (!products) return;
+    if (!categoryId) {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(
+        (product) => product.category_id === categoryId
+      );
+      setFilteredProducts(filtered);
+    }
+  };
 
   if (isLoading) return <ProductsLoading />;
 
   if (isError) {
-    toast.error(error?.message);
-    return null;
+    console.error(error?.message);
+    return <div>Error loading products.</div>;
   }
+
   return (
     <div className="pl">
+      <Filter onFilter={filterProductsByCategory} />
       <div className="container">
         <div className="pl-r">
-          {products?.map((product, i) => (
-            <ProductCard key={i} product={product} />
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
