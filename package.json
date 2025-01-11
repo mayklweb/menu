@@ -16,6 +16,7 @@
     "react-dom": "^18.3.1",
     "react-loading-skeleton": "^3.5.0",
     "react-query": "^3.39.3",
+    "telegram-webapps-types": "^1.0.5",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
