@@ -6,7 +6,12 @@ function Footer() {
   const { getTotalPrice } = useCartStore();
   const totalPrice = getTotalPrice()
 
-  const handleClose = closeMiniApp()
+  function hanldeColse( ){
+    if(closeMiniApp.isAvailable()){
+      close()
+    }
+  }
+
 
 
   
@@ -15,7 +20,7 @@ function Footer() {
       <div className="container">
         <div className="footer-r">
           <p className="order-price">{totalPrice.toLocaleString()} so'm</p>
-          <button onClick={handleClose} className="order-btn">Заказать</button>
+          <button onClick={hanldeColse} className="order-btn">Заказать</button>
         </div>
       </div>
     </footer>
