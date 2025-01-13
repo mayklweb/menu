@@ -18,6 +18,8 @@ function Footer() {
     // Ensure Telegram WebApp is initialized
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
       Telegram.WebApp.ready(); // Indicate the Web App is ready
+      const user = tg.initDataUnsafe?.user;
+      console.log(user);
     } else {
       console.error("Telegram WebApp is not available.");
     }
@@ -26,6 +28,8 @@ function Footer() {
   const handleClose = () => {
     if (Telegram?.WebApp) {
       Telegram.WebApp.close(); // Close the Web App
+      const user = tg.initDataUnsafe?.user;
+      console.log(user);
     } else {
       console.error("Telegram WebApp is not available.");
     }
