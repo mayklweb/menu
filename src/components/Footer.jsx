@@ -15,6 +15,7 @@ function Footer() {
     }
   }
   useEffect(() => {
+    const tg = window.Telegram?.WebApp;
     // Ensure Telegram WebApp is initialized
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
       Telegram.WebApp.ready(); // Indicate the Web App is ready
@@ -26,6 +27,7 @@ function Footer() {
   }, []);
 
   const handleClose = () => {
+    const tg = window.Telegram?.WebApp;
     if (Telegram?.WebApp) {
       Telegram.WebApp.close(); // Close the Web App
       const user = tg.initDataUnsafe?.user;
