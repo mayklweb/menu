@@ -20,7 +20,7 @@ function Footer() {
   }, []);
 
   const postOrder = useMutation(async (orderData) => {
-    const response = await axios.post('https://paco.uz/save-order', orderData);
+    const response = await axios.post('https://pyco.uz/save-order/', orderData);
     return response.data;
   });
 
