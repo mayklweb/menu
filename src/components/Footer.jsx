@@ -14,27 +14,22 @@ function Footer() {
       closeMiniApp();
     }
   }
+  const tg = window.Telegram?.WebApp;
   useEffect(() => {
-    const tg = window.Telegram?.WebApp;
     // Ensure Telegram WebApp is initialized
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
       Telegram.WebApp.ready(); // Indicate the Web App is ready
       const user = tg.initDataUnsafe?.user;
-      alert(user)
-
-      console.log(user);
     } else {
       console.error("Telegram WebApp is not available.");
     }
   }, []);
-
+  
+  const user = tg.initDataUnsafe?.user;
   const handleClose = () => {
     const tg = window.Telegram?.WebApp;
     if (Telegram?.WebApp) {
       Telegram.WebApp.close(); // Close the Web App
-      const user = tg.initDataUnsafe?.user;
-      alert(user)
-      console.log(user);
     } else {
       console.error("Telegram WebApp is not available.");
     }
@@ -44,6 +39,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-r">
+          {user}
           <p className="order-price">{totalPrice.toLocaleString()} so'm</p>
           <button onClick={handleClose} className="order-btn">
             Заказать
