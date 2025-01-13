@@ -30,7 +30,7 @@ function ProductsList() {
       setFilteredProducts(products);
     } else {
       const filtered = products.filter(
-        (product) => product.category_id === categoryId
+        (product) => product.category.id === categoryId
       );
       setFilteredProducts(filtered);
     }

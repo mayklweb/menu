@@ -10,7 +10,7 @@ function ProductCard({ product }) {
   return (
     <div className="p">
       <div className="p-img">
-        <img src={product.img} alt="" />
+        <img src={product.photo} alt="" />
       </div>
       <div className="p-t">
         <p className="p-n">

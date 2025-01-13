@@ -32,7 +32,7 @@ function Filter({ onFilter }) {
           onClick={() => handleFilterByCategory("")}
           className={`c-btn ${!activeCategory && "active"}`}
         >
-          All
+          Все
         </button>
         {categories?.map(({ name, id }) => (
           <button

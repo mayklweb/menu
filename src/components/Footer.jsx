@@ -1,45 +1,72 @@
 import useCartStore from "../store";
-import { closeMiniApp } from "@telegram-apps/sdk";
 import React, { useEffect } from "react";
-
-// import { close } from "@telegram-apps/sdk/dist/dts/scopes/components/qr-scanner/qr-scanner";
-// import { close } from "@telegram-apps/sdk/dist/dts/scopes/components/mini-app/methods";
+import { postOrder } from "../api/apiServices";
+import { useMutation } from "react-query";
+import axios from "axios";
 
 function Footer() {
   const { getTotalPrice } = useCartStore();
+  // const postOrder = postOrder();
   const totalPrice = getTotalPrice();
   const tg = window.Telegram?.WebApp;
   const user = tg.initDataUnsafe?.user;
-  alert(JSON.stringify(user))
-  function hanldeColse() {
-    if (closeMiniApp.isAvailable()) {
-      closeMiniApp();
-    }
-  }
+
   useEffect(() => {
-    // Ensure Telegram WebApp is initialized
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
-      Telegram.WebApp.ready(); // Indicate the Web App is ready
+      Telegram.WebApp.ready();
     } else {
       console.error("Telegram WebApp is not available.");
     }
   }, []);
-  
-  const handleClose = () => {
-    if (Telegram?.WebApp) {
-      Telegram.WebApp.close(); // Close the Web App
-    } else {
-      console.error("Telegram WebApp is not available.");
-    }
+
+  const postOrder = useMutation(async (orderData) => {
+    const response = await axios.post('https://paco.uz/save-order', orderData);
+    return response.data;
+  });
+
+  // const handleClose = () => {
+  //   if (Telegram?.WebApp) {
+  //     Telegram.WebApp.close();
+  //   } else {
+  //     console.error("Telegram WebApp is not available.");
+  //   }
+  // };
+
+  const handleSubmit = async () => {
+    const orderData = [{
+      tr_ID: 342346856,
+      products: [
+        { id: 1, name: "Ymrta", qty: 1 },
+        { id: 2, name: "Emchak sho'rva", qty: 2 },
+        totalPrice,
+      ],
+    }]
+
+    postOrder.mutate(orderData, {
+      onSuccess: (data) => {
+        console.log("Order successful:", data);
+      },
+      onError: (error) => {
+        console.error("Order failed:", error);
+      },
+    });
   };
+
+  // const handleSubmits = (e) => {
+  //   e.preventDefault();
+  //   if (Telegram?.WebApp) {
+  //     Telegram.WebApp.close();
+  //   } else {
+  //     console.error("Telegram WebApp is not available.");
+  //   }
+  // };
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-r">
-          {user}
           <p className="order-price">{totalPrice.toLocaleString()} so'm</p>
-          <button onClick={handleClose} className="order-btn">
+          <button onClick={handleSubmit} className="order-btn">
             Заказать
           </button>
         </div>
