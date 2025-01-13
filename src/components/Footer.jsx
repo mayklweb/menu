@@ -8,26 +8,24 @@ import React, { useEffect } from "react";
 function Footer() {
   const { getTotalPrice } = useCartStore();
   const totalPrice = getTotalPrice();
-
+  const tg = window.Telegram?.WebApp;
+  const user = tg.initDataUnsafe?.user;
+  alert(JSON.stringify(user))
   function hanldeColse() {
     if (closeMiniApp.isAvailable()) {
       closeMiniApp();
     }
   }
-  const tg = window.Telegram?.WebApp;
   useEffect(() => {
     // Ensure Telegram WebApp is initialized
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
       Telegram.WebApp.ready(); // Indicate the Web App is ready
-      const user = tg.initDataUnsafe?.user;
     } else {
       console.error("Telegram WebApp is not available.");
     }
   }, []);
   
-  const user = tg.initDataUnsafe?.user;
   const handleClose = () => {
-    const tg = window.Telegram?.WebApp;
     if (Telegram?.WebApp) {
       Telegram.WebApp.close(); // Close the Web App
     } else {
