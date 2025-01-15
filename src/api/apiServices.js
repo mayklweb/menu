@@ -2,7 +2,7 @@ import { useMutation } from "react-query";
 import { Axios } from "./api";
 
 export const getProducts = async () => {
-  const { data } = await Axios.get("/products");
+  const { data } = await Axios.get("/products/");
   return data.results;
 };
 
