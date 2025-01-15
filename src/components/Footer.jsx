@@ -5,13 +5,12 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 function Footer() {
-  const { getTotalPrice } = useCartStore();
+  const { getTotalPrice, cart  } = useCartStore();
   // const postOrder = postOrder();
   const totalPrice = getTotalPrice();
   const tg = window.Telegram?.WebApp;
   const user = tg.initDataUnsafe?.user;
 
-  alert(JSON.stringify(user))
 
   useEffect(() => {
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
@@ -36,12 +35,8 @@ function Footer() {
 
   const handleSubmit = async () => {
     const orderData = [{
-      tr_ID: 342346856,
-      products: [
-        { id: 1, name: "Ymrta", qty: 1 },
-        { id: 2, name: "Emchak sho'rva", qty: 2 },
-        totalPrice,
-      ],
+      tr_ID: user.id,
+      products: [{...cart}, totalPrice],
     }]
 
     postOrder.mutate(orderData, {
