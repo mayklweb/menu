@@ -5,12 +5,11 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 function Footer() {
-  const { getTotalPrice, cart  } = useCartStore();
+  const { getTotalPrice, cart, clearCart } = useCartStore();
   // const postOrder = postOrder();
   const totalPrice = getTotalPrice();
   const tg = window.Telegram?.WebApp;
   const user = tg.initDataUnsafe?.user;
-
 
   useEffect(() => {
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
@@ -21,7 +20,7 @@ function Footer() {
   }, []);
 
   const postOrder = useMutation(async (orderData) => {
-    const response = await axios.post('https://pyco.uz/save-order/', orderData);
+    const response = await axios.post("https://pyco.uz/save-order/", orderData);
     return response.data;
   });
 
@@ -34,10 +33,16 @@ function Footer() {
   // };
 
   const handleSubmit = async () => {
-    const orderData = [{
-      tr_ID: user.id,
-      products: [{...cart}, totalPrice],
-    }]
+    if (Telegram?.WebApp) {
+      Telegram.WebApp.close();
+      clearCart();
+    }
+    const orderData = [
+      {
+        tr_ID: user.id,
+        products: [cart, totalPrice],
+      },
+    ];
 
     postOrder.mutate(orderData, {
       onSuccess: (data) => {
