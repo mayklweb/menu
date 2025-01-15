@@ -11,7 +11,7 @@ function Footer() {
   const tg = window.Telegram?.WebApp;
   const user = tg.initDataUnsafe?.user;
 
-  alert(user)
+  alert(JSON.stringify(user))
 
   useEffect(() => {
     if (typeof Telegram !== "undefined" && Telegram.WebApp) {
