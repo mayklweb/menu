@@ -39,7 +39,7 @@ function Footer() {
     }
     const orderData = [
       {
-        tg_ID: user.id,
+        tg_ID: 436254,
         products: [...cart], 
         price: totalPrice
       },
