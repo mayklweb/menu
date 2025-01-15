@@ -40,7 +40,7 @@ function Footer() {
     const orderData = [
       {
         tr_ID: user.id,
-        products: [cart, totalPrice],
+        products: {cart, price: totalPrice}
       },
     ];
 
